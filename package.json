@@ -1,0 +1,80 @@
+{
+    "name": "pebblakte",
+    "author": "Cluster & veselcraft",
+    "keywords": [],
+    "version": "1.43.0",
+    "private": true,
+    "dependencies": {
+        "pebble-clay": "^1.0.4"
+    },
+    "pebble": {
+        "capabilities": [
+            "configurable"
+        ],
+        "displayName": "Pebblakte",
+        "enableMultiJS": true,
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "aplite",
+            "basalt"
+        ],
+        "uuid": "ebe02f62-3af8-463a-950f-3fc2383d5c66",
+        "watchapp": {
+            "watchface": false
+        },
+        "messageKeys": {
+            "MSG_KEY_ANSWERS_ELEMENT": 21,
+            "MSG_KEY_ANSWERS_END": 22,
+            "MSG_KEY_ANSWERS_START": 20,
+            "MSG_KEY_ANSWER_MESSAGE": 24,
+            "MSG_KEY_ANSWER_MESSAGE_CUSTOM": 36,
+            "MSG_KEY_ANSWER_TO": 23,
+            "MSG_KEY_CRITICAL_ERROR": 2,
+            "MSG_KEY_DIALOGS_START": 4,
+            "MSG_KEY_DIALOG_END": 8,
+            "MSG_KEY_DIALOG_ID": 5,
+            "MSG_KEY_DIALOG_OUT": 9,
+            "MSG_KEY_DIALOG_TEXT": 7,
+            "MSG_KEY_DIALOG_TITLE": 6,
+            "MSG_KEY_JAVASCRIPT_STARTED": 35,
+            "MSG_KEY_MESSAGES_ATTACHMENTS": 15,
+            "MSG_KEY_MESSAGES_DATE": 14,
+            "MSG_KEY_MESSAGES_END": 17,
+            "MSG_KEY_MESSAGES_NAME": 11,
+            "MSG_KEY_MESSAGES_OUT": 12,
+            "MSG_KEY_MESSAGES_READ": 16,
+            "MSG_KEY_MESSAGES_START": 10,
+            "MSG_KEY_MESSAGES_TEXT": 13,
+            "MSG_KEY_NOTIFICATIONS_END": 33,
+            "MSG_KEY_NOTIFICATIONS_START": 27,
+            "MSG_KEY_NOTIFICATIONS_TEXT": 30,
+            "MSG_KEY_NOTIFICATIONS_TEXT_END": 31,
+            "MSG_KEY_REFRESH_DIALOGS": 25,
+            "MSG_KEY_REQUEST": 18,
+            "MSG_KEY_REQUEST_LIST": 19,
+            "MSG_KEY_SEQ": 0,
+            "MSG_KEY_SHOW_NOTIFICATIONS": 26,
+            "MSG_KEY_STATE": 1,
+            "MSG_KEY_VK_ERROR": 3,
+            "token": 1000,
+            "domain": 1001,
+            "notifications": 1002,
+            "messages": 1003
+        },
+        "resources": {
+            "media": [
+                {
+                    "file": "images/vk.png",
+                    "menuIcon": true,
+                    "name": "IMAGE_ICON",
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/loading.png",
+                    "name": "IMAGE_LOADING",
+                    "type": "bitmap"
+                }
+            ]
+        }
+    }
+}

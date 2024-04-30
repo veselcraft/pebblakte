@@ -1,0 +1,56 @@
+[
+    { 
+      "type": "heading", 
+      "defaultValue": "Pebblakte" 
+    }, 
+    { 
+      "type": "text", 
+      "defaultValue": "Форк от Veselcraft, автор Cluster" 
+    },
+    {
+      "type": "section",
+      "items": [
+        {
+          "type": "heading",
+          "defaultValue": "Настройка сервера"
+        },
+        {
+          "type": "input",
+          "messageKey": "token",
+          "label": "Ключ API от ВК/OpenVK",
+          "defaultValue": ""
+        },
+        {
+          "type": "input",
+          "messageKey": "domain",
+          "label": "Домен API (для ВКонтакте - api.vk.com)",
+          "defaultValue": "ovk.to"
+        }
+      ]
+    },
+    {
+        "type": "section",
+        "items": [
+            {
+                "type": "heading",
+                "defaultValue": "Приложение"
+            },
+            {
+                "type": "toggle",
+                "messageKey": "notifications",
+                "label": "Вывести пункт \"Ответы\" в меню",
+                "defaultValue": false
+            },
+            {
+                "type": "input",
+                "messageKey": "messages",
+                "label": "Быстрые ответы (через ;)",
+                "defaultValue": "Да; Нет; Окей; Подумаю; Кажется да, а что?"
+            }
+        ]
+    },
+    {
+        "type": "submit",
+        "defaultValue": "Сохранить"
+    }
+]
