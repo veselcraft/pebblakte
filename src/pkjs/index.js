@@ -86,7 +86,7 @@ function downloadDialogs()
   send({"MSG_KEY_STATE": 1});
   var response;
   var req = new XMLHttpRequest();  
-  var url = "https://"+options.domain+"/method/messages.getConversations?extended=1&access_token="+options.token;
+  var url = "https://"+options.domain+"/method/messages.getConversations?extended=1&v=5.199&access_token="+options.token;
   req.open('GET', url, true);
   req.onreadystatechange = function() {
     if (req.readyState == 4) {
@@ -103,9 +103,27 @@ function downloadDialogs()
             var id, out, title, text;
             out = response.items[d].out;
             id = response.items[d].conversation.peer.id;
-            text = response.items[d].last_message.body;
+            text = response.items[d].last_message.text;
+
+            // need to find heroin
+            if (id >= 2000000000) {
+              title = response.items[d].conversation.chat_settings.title;
+            } else if (id > 0) {
+              for (var i = 0; i < response.profiles.length; i++) {
+                if (response.profiles[i].id === id) {
+                  title = response.profiles[i].first_name + " " + response.profiles[i].last_name;
+                  break;
+                }
+              }
+            } else if (id < 0) {
+              for (var i = 0; i < response.groups.length; i++) {
+                if (response.groups[i].id === id) {
+                  title = response.groups[i].name;
+                  break;
+                }
+              }
+            }
             
-            title = response.profiles[d].first_name + " " + response.profiles[d].last_name;
             if (response.items[d].attachments && (response.items[d].attachments.length > 0))
               text = text + " "+JSON.stringify(response.items[d].attachments);
             text = text.replace(/\[id.+\|(.+)\]/,"$1");
@@ -138,7 +156,7 @@ function downloadMessages(user_id)
   send({"MSG_KEY_STATE": 1});
   var response;
   var req = new XMLHttpRequest();  
-  var url = "https://"+options.domain+"/method/messages.getHistory?user_id="+user_id+"&count=10&extended=1&access_token="+options.token;
+  var url = "https://"+options.domain+"/method/messages.getHistory?user_id="+user_id+"&count=10&extended=1&v=5.199&access_token="+options.token;
   req.open('GET', url, true);
   req.onreadystatechange = function() {
     if (req.readyState == 4) {
@@ -160,17 +178,30 @@ function downloadMessages(user_id)
               console.warn("Messages are too big, stop");
               continue;
             }
-            var name, out, text, date, attachmets;
+            var name, out, text, date, id, attachmets;
             out = response.items[d].out;
             text = response.items[d].text;
             date = response.items[d].date;
+            id = response.items[d].from_id;
             read = response.items[d].read_state;
 
-            if (out == 0) {
-              name = response.profiles[1].first_name;
-            } else {
-              name = response.profiles[0].first_name;
+            // need to find femtanyl
+            if (id > 0) {
+              for (var i = 0; i < response.profiles.length; i++) {
+                if (response.profiles[i].id === id) {
+                  name = response.profiles[i].first_name;
+                  break;
+                }
+              }
+            } else if (id < 0) {
+              for (var i = 0; i < response.groups.length; i++) {
+                if (response.groups[i].id === id) {
+                  title = response.groups[i].name;
+                  break;
+                }
+              }
             }
+
             // Если сообщений слишком много, и они все прочитаны, то не грузим
             if ((d >= optimal_msg_count) && ((read != 0) || (out != 0)))
               break;
@@ -214,7 +245,7 @@ function downloadNotifications()
   send({"MSG_KEY_STATE": 1});
   var response;
   var req = new XMLHttpRequest();  
-  var url = "https://api.vk.com/method/execute.getNotifications?v=5.81&access_token="+options.token;
+  var url = "https://api.vk.com/method/execute.getNotifications?v=5.199&access_token="+options.token;
   req.open('GET', url, true);
   req.onreadystatechange = function() {
     if (req.readyState == 4) {
@@ -719,12 +750,8 @@ function sendList() {
 function answer(user_id, text) {
   var response;
   var req = new XMLHttpRequest();  
-  if (user_id > 0)
-  {
-    var url = "https://"+options.domain+"/method/messages.send?user_id="+user_id+"&access_token="+options.token+"&message="+encodeURIComponent(text);
-  } else {
-    var url = "https://"+options.domain+"/method/messages.send?chat_id="+(-user_id)+"&access_token="+options.token+"&message="+encodeURIComponent(text);
-  }
+  var rand = Math.floor(Math.random() * 1000000);
+  var url = "https://"+options.domain+"/method/messages.send?peer_id="+user_id+"&v=5.199&access_token="+options.token+"&random_id="+rand+"&message="+encodeURIComponent(text);
   req.open('GET', url, true);
   req.onreadystatechange = function() {
     if (req.readyState == 4) {
