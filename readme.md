@@ -5,9 +5,21 @@
 
 ## Скриншоты
 
-<img src="pebble_screenshot_2024-04-30_14-22-21.png" alt="Список диалогов">
-<img src="pebble_screenshot_2024-04-30_14-24-08.png" alt="Диалог">
-<img src="pebble_screenshot_2024-04-30_14-25-36.png" alt="А это типа ответ">
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <img src="pebble_screenshot_2024-04-30_14-22-21.png" alt="Список диалогов">
+            </td>
+            <td>
+                <img src="pebble_screenshot_2024-04-30_14-24-08.png" alt="Диалог">
+            </td>
+            <td>
+                <img src="pebble_screenshot_2024-04-30_14-25-36.png" alt="А это типа ответ">
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 ## Получение токена
 
