@@ -6,7 +6,7 @@ void send(int seq, int key1, int value1, int key2, int value2);
 #define SCREEN_HEIGHT 168
 #else
 #define SCREEN_WIDTH 180
-#define SCREEN_HEIGHT 1180
+#define SCREEN_HEIGHT 180
 #endif
 
 #define VERSION 1
