@@ -186,7 +186,7 @@ void show_messages()
     if (dialog_id != 1)
     {
       // Time
-      text_layer_element_time[element] = text_layer_create((GRect) { .origin = {105, y}, .size = {34, 30} } );  
+      text_layer_element_time[element] = text_layer_create((GRect) { .origin = {SCREEN_WIDTH - 39, y}, .size = {34, 30} } );  
       text_layer_set_font(text_layer_element_time[element], font_element_time);
       text_layer_set_background_color(text_layer_element_time[element], GColorClear);
       text_layer_set_text_color(text_layer_element_time[element], GColorBlack);    

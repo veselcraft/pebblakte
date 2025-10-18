@@ -1,13 +1,8 @@
 #include <pebble.h>
 void send(int seq, int key1, int value1, int key2, int value2);
 //#define DEBUG APP_LOG(APP_LOG_LEVEL_DEBUG,
-#if !PBL_PLATFORM_CHALK
-#define SCREEN_WIDTH 144
-#define SCREEN_HEIGHT 168
-#else
-#define SCREEN_WIDTH 180
-#define SCREEN_HEIGHT 180
-#endif
+#define SCREEN_WIDTH PBL_DISPLAY_WIDTH
+#define SCREEN_HEIGHT PBL_DISPLAY_HEIGHT
 
 #define VERSION 1
 #define INBOUND_SIZE 128
